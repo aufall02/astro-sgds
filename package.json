@@ -12,6 +12,11 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@govtechsg/sgds-web-component": "^3.15.0",
     "astro": "^6.1.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.2.2",
+    "tailwindcss": "^4.2.2"
   }
 }
