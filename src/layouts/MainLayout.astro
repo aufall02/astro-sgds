@@ -1,0 +1,156 @@
+---
+import { ClientRouter } from "astro:transitions";
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="Astro SGDS Landing Page" />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="generator" content={Astro.generator} />
+  <title>{title} | Astro SGDS Boilerplate</title>
+  <!-- Fonts applied in global.css -->
+  <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+  />
+  <ClientRouter />
+</head>
+<body class="sgds:bg-surface-default sgds:text-default">
+<div>
+  <sgds-system-banner show dismissible fluid>
+    <sgds-system-banner-item>
+      <sgds-icon slot="icon" name="info-circle-fill" size="md"></sgds-icon>
+      Pemberitahuan Sistem: Website ini masih dalam tahap uji coba (Beta).
+      <sgds-link size="sm" variant="light" slot="action">
+        <a href="#">Info Lanjut <sgds-icon name="arrow-right"></sgds-icon></a>
+      </sgds-link>
+    </sgds-system-banner-item>
+  </sgds-system-banner>
+  <sgds-mainnav fluid="" brandHref="/">
+    <img alt="Astro logo" height="40" src="https://astro.build/assets/press/full-logo-light.svg" slot="brand" >
+    <sgds-mainnav-item><a href="#home">Beranda</a></sgds-mainnav-item>
+    <sgds-mainnav-item><a href="#stats">Statistik</a></sgds-mainnav-item>
+
+    <!-- Dropdown Menu -->
+    <sgds-mainnav-dropdown>
+      <span slot="toggler">Layanan</span>
+      <sgds-dropdown-item><a href="/services/consulting">Konsultasi</a></sgds-dropdown-item>
+      <sgds-dropdown-item><a href="/services/engineering">Rekayasa Perangkat Lunak</a></sgds-dropdown-item>
+      <sgds-dropdown-item><a href="/services/design">Desain UI/UX</a></sgds-dropdown-item>
+    </sgds-mainnav-dropdown>
+
+    <sgds-mainnav-item><a href="#faq">Pertanyaan Umum</a></sgds-mainnav-item>
+  </sgds-mainnav>
+</div>
+
+<!-- Page Layout Container -->
+<div class="sgds:flex sgds:flex-col sgds:min-h-screen">
+  <div class="sgds:flex-1">
+    <slot />
+  </div>
+
+  <!-- Global Footer -->
+  <sgds-footer
+      lastUpdatedDate="27 Mar 2026"
+      contactHref="#"
+      feedbackHref="#"
+      privacyHref="#"
+      termsOfUseHref="#"
+  >
+    <div slot="title">Astro SGDS Boilerplate Indonesia</div>
+    <div slot="description">
+      Memungkinkan pengembang untuk membangun layanan digital yang aman, dapat diakses, dan inklusif.
+    </div>
+
+    <sgds-footer-item slot="items">
+      <div slot="title">Kolom 1</div>
+      <sgds-link><a href="">Tentang Kami</a></sgds-link>
+      <sgds-link><a href="">Pekerjaan Kami</a></sgds-link>
+    </sgds-footer-item>
+
+    <sgds-footer-item slot="items">
+      <div slot="title">Kolom 2</div>
+      <sgds-link><a href="">Layanan Digital</a></sgds-link>
+      <sgds-link><a href="">Karir</a></sgds-link>
+    </sgds-footer-item>
+    <sgds-footer-item slot="items">
+      <div slot="title">Kolom 3</div>
+      <sgds-link><a href="">Layanan Digital</a></sgds-link>
+      <sgds-link><a href="">Karir</a></sgds-link>
+    </sgds-footer-item>
+    <sgds-footer-item slot="items">
+      <div slot="title">Kolom 4</div>
+      <sgds-link><a href="">Layanan Digital</a></sgds-link>
+      <sgds-link><a href="">Karir</a></sgds-link>
+    </sgds-footer-item>
+  </sgds-footer>
+</div>
+
+<!-- Cookie Consent Banner & Modal -->
+<sgds-toast-container position="bottom-center">
+  <sgds-toast id="cookie-toast" show variant="neutral" title="Pemberitahuan Cookie">
+    <sgds-icon slot="icon" name="info-circle-fill"></sgds-icon>
+    Website ini menggunakan cookie untuk memastikan pengalaman pengguna yang lebih baik.
+    <a href="#" id="open-cookie-modal" class="sgds:ml-2 sgds:underline sgds:text-primary-default">Kelola Pengaturan</a>
+    <sgds-button slot="action" id="accept-cookies" size="sm" variant="primary" class="sgds:ml-4">Terima Semua</sgds-button>
+  </sgds-toast>
+</sgds-toast-container>
+
+<!-- Cookie Preferences Modal -->
+<sgds-modal id="cookie-modal">
+  <h2 slot="title">Pengaturan Cookie</h2>
+  <p slot="description">Sesuaikan preferensi privasi Anda di bawah ini berdasarkan standar kebijakan data.</p>
+
+  <div class="sgds:mt-layout-md">
+    <sgds-checkbox-group>
+      <sgds-checkbox value="necessary" checked disabled class="sgds:mb-2">Strictly Necessary Cookies (Wajib)</sgds-checkbox>
+      <sgds-checkbox value="analytics" checked class="sgds:mb-2">Analytics Cookies (Statistik & Performa)</sgds-checkbox>
+      <sgds-checkbox value="marketing">Marketing Cookies (Iklan & Penargetan)</sgds-checkbox>
+    </sgds-checkbox-group>
+  </div>
+
+  <sgds-button slot="footer" variant="link" id="close-cookie-modal">Batal</sgds-button>
+  <sgds-button slot="footer" variant="primary" id="save-cookie-prefs">Simpan Preferensi</sgds-button>
+</sgds-modal>
+
+<script>
+  import "@govtechsg/sgds-web-component";
+
+  // Scripts for Cookie interactions
+  document.addEventListener('astro:page-load', () => {
+    const modal = document.getElementById("cookie-modal") as any;
+    const toast = document.getElementById("cookie-toast") as any;
+
+    document.getElementById("open-cookie-modal")?.addEventListener("click", (e) => {
+      e.preventDefault();
+      modal?.show();
+    });
+
+    document.getElementById("close-cookie-modal")?.addEventListener("click", () => {
+      modal?.hide();
+    });
+
+    document.getElementById("save-cookie-prefs")?.addEventListener("click", () => {
+      // Perform save logic here in real app
+      modal?.hide();
+      toast?.hideToast();
+    });
+
+    document.getElementById("accept-cookies")?.addEventListener("click", () => {
+      // Perform accept all logic here in real app
+      toast?.hideToast();
+    });
+  });
+</script>
+</body>
+</html>

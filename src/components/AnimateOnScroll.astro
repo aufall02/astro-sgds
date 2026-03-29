@@ -1,0 +1,47 @@
+---
+interface Props {
+  animation?: 'fade-in-up' | 'fade-in-left' | 'fade-in-right';
+  delay?: string;
+  duration?: string;
+  class?: string;
+}
+
+const { 
+  animation = 'fade-in-up', 
+  delay = '0s', 
+  duration = '0.8s',
+  class: className = '' 
+} = Astro.props;
+---
+
+<div class={`animate-on-scroll ${animation} ${className}`} style={`transition-delay: ${delay}; transition-duration: ${duration};`}>
+  <slot />
+</div>
+
+<script>
+  // Simple intersection observer to add 'is-visible' class when in view
+  function initObserver() {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            // Stop observing once animated
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.1, // Trigger when 10% visible
+        rootMargin: '0px 0px -50px 0px',
+      }
+    );
+
+    document.querySelectorAll('.animate-on-scroll:not(.is-visible)').forEach((el) => {
+      observer.observe(el);
+    });
+  }
+
+  // Support Astro View Transitions
+  document.addEventListener('astro:page-load', initObserver);
+</script>
