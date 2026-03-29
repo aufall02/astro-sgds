@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,600;0,14..32,700;1,14..32,300;1,14..32,400;1,14..32,600;1,14..32,700&display=swap');
+/* 1. Theme tokens */
+@import "@govtechsg/sgds-web-component/themes/day.css";
+/* 2. Foundation styles */
+@import "@govtechsg/sgds-web-component/css/sgds.css";
+/* 3. Utility classes processed by Tailwind */
+@import "@govtechsg/sgds-web-component/css/utility.css";
+
+/* SGDS Brand Override - Gov.sg Trustworthy Blue Palette */
+:root {
+  --sgds-product-primary-100: #E6F3FE;
+  --sgds-product-primary-200: #CCE7FD;
+  --sgds-product-primary-300: #99CFFB;
+  --sgds-product-primary-400: #66B6F9;
+  --sgds-product-primary-500: #339DF8;
+  --sgds-product-primary-600: #0084F6;
+  --sgds-product-primary-700: #006AC5;
+  --sgds-product-primary-800: #004F94;
+  --sgds-product-primary-900: #003562;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Base tweaks for layout */
+.hero-gradient {
+  background: linear-gradient(135deg, var(--sgds-product-primary-700) 0%, var(--sgds-product-primary-900) 100%);
+  color: white;
+}
+
+/* Animations */
+.animate-on-scroll {
+  opacity: 0;
+  transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: opacity, transform;
+}
+
+.animate-on-scroll.is-visible {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+.fade-in-up {
+  transform: translateY(40px);
+}
+
+.fade-in-left {
+  transform: translateX(-40px);
+}
+
+.fade-in-right {
+  transform: translateX(40px);
+}
