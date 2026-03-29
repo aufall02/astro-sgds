@@ -1,17 +1,323 @@
 ---
+import MainLayout from "../layouts/MainLayout.astro";
+import AnimateOnScroll from "../components/AnimateOnScroll.astro";
 
+const stats = [
+  { label: "Pengguna Aktif", value: "4M+" },
+  { label: "Uptime Platform", value: "99.9%" },
+  { label: "Layanan Digital", value: "500+" },
+  { label: "Beroperasi", value: "5 Tahun" },
+];
+
+const features = [
+  {
+    icon: "bi-file-earmark-text",
+    title: "Dokumen Digital",
+    description:
+      "Akses dan kelola dokumen resmi pemerintah Anda secara online dengan aman.",
+  },
+  {
+    icon: "bi-shield-check",
+    title: "Autentikasi Aman",
+    description:
+      "Masuk dengan aman menggunakan identitas digital untuk mengakses ratusan layanan.",
+  },
+  {
+    icon: "bi-cash-coin",
+    title: "Bantuan Keuangan",
+    description:
+      "Ajukan dan pantau status bantuan keuangan pemerintah Anda dengan mudah.",
+  },
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<MainLayout title="Pengalaman Digital untuk Indonesia">
+  <div class="sgds:bg-surface-default sgds:min-h-screen">
+    <div class="sgds-container sgds:py-layout-xl">
+      <!-- ① Header: two-column headline + description -->
+      <div class="sgds-grid sgds:mb-layout-lg">
+        <div class="sgds-col-4 sgds-col-sm-8 sgds-col-lg-6">
+          <AnimateOnScroll animation="fade-in-up">
+            <h1
+              class="sgds:text-display-lg sgds:font-bold sgds:leading-2-xl sgds:tracking-tighter sgds:text-default"
+            >
+              Bangun pengalaman digital terbaik untuk Indonesia
+            </h1>
+          </AnimateOnScroll>
+        </div>
+        <div
+          class="sgds-col-4 sgds-col-sm-8 sgds-col-lg-6 sgds:flex sgds:items-end"
+        >
+          <AnimateOnScroll animation="fade-in-left" delay="0.2s">
+            <p
+              class="sgds:text-body-lg sgds:font-regular sgds:leading-md sgds:text-muted"
+            >
+              Boilerplate ini dikembangkan untuk memberdayakan tim modern dalam membuat layanan digital yang cepat, dapat diakses, dan berpusat pada masyarakat di seluruh negeri.
+            </p>
+          </AnimateOnScroll>
+        </div>
+      </div>
+
+      <!-- ② Image grid: main image (8) + right column (4) -->
+      <div
+        class="sgds-grid sgds:mb-layout-xl"
+        style="--sgds-grid-row-gap: var(--sgds-layout-gap-md)"
+      >
+        <!-- Main image -->
+        <div class="sgds-col-4 sgds-col-sm-8 sgds-col-lg-8 sgds:flex">
+          <AnimateOnScroll
+            animation="fade-in-up"
+            delay="0.1s"
+            class="sgds:w-full"
+          >
+            <img
+              src="https://www.indonesia.travel/contentassets/9c0061b3382c40599f198963c7d31c64/dki-jakarta2.jpg?auto=format&fit=crop&q=80&w=1200"
+              alt="Singapore Skyline"
+              class="sgds:w-full sgds:h-full sgds:object-cover sgds:rounded-lg sgds:shadow-md"
+              style="min-height: 400px;"
+            />
+          </AnimateOnScroll>
+        </div>
+
+        <!-- Right column: card + secondary image stacked -->
+        <div
+          class="sgds-col-4 sgds-col-sm-8 sgds-col-lg-4 sgds:flex sgds:flex-col sgds:gap-layout-md"
+        >
+          <!-- Breakout card -->
+          <AnimateOnScroll
+            animation="fade-in-up"
+            delay="0.2s"
+            class="sgds:flex-1 sgds:flex"
+          >
+            <sgds-thumbnail-card
+              class="sgds:flex-1 sgds:shadow-card hover:sgds:-translate-y-1 sgds:transition-transform sgds:duration-300"
+            >
+              <img
+                slot="thumbnail"
+                src="https://astro.build/assets/press/astro-icon-dark.svg"
+                alt="Astro logo"
+                width="80"
+                height="80"
+                class="sgds:object-contain sgds:p-2"
+              />
+              <span
+                slot="description"
+                class="sgds:text-body-sm sgds:text-muted"
+              >
+                Dipercaya oleh berbagai instansi pemerintah untuk menghadirkan antarmuka digital yang mudah diakses, patuh, dan konsisten.
+              </span>
+              <sgds-link slot="footer">
+                <a
+                  href="#services"
+                  class="sgds:text-primary-default sgds:font-semibold"
+                  >Jelajahi Layanan <i class="bi bi-arrow-right sgds:ml-1"></i>
+                </a>
+              </sgds-link>
+            </sgds-thumbnail-card>
+          </AnimateOnScroll>
+
+          <!-- Secondary image -->
+          <AnimateOnScroll animation="fade-in-up" delay="0.3s">
+            <img
+              src="https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80&w=600"
+              alt="People collaborating"
+              class="sgds:w-full sgds:h-50 sgds:object-cover sgds:rounded-lg sgds:shadow-md"
+            />
+          </AnimateOnScroll>
+        </div>
+      </div>
+
+      <!-- ③ Logo strip -->
+      <div class="sgds:mb-layout-2xl sgds:overflow-hidden">
+        <AnimateOnScroll animation="fade-in-up">
+          <div class="sgds:text-center sgds:mb-layout-sm">
+            <p
+              class="sgds:text-overline-md sgds:font-semibold sgds:leading-2-xs sgds:tracking-wide sgds:uppercase sgds:text-muted"
+            >
+              Mendukung Instansi Pemerintah Modern
+            </p>
+          </div>
+
+          <!-- Marquee wrapper — CSS scroll animation, no JS required -->
+          <div
+            class="sgds:overflow-hidden sgds:relative"
+            style="mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent)"
+          >
+            <div
+              class="sgds-about-logo-track sgds:flex sgds:gap-layout-xl sgds:w-max sgds:py-4"
+            >
+              <!-- Duplicate the logo set for seamless loop -->
+              <div
+                class="sgds:flex sgds:gap-layout-xl sgds:items-center sgds:shrink-0"
+              >
+                <div class="sgds:text-heading-sm sgds:font-bold sgds:opacity-40 sgds:text-muted">Kementerian Kesehatan</div>
+                <div class="sgds:text-heading-sm sgds:font-bold sgds:opacity-40 sgds:text-muted">GovTech Indonesia</div>
+                <div class="sgds:text-heading-sm sgds:font-bold sgds:opacity-40 sgds:text-muted">Kota Cerdas</div>
+                <div class="sgds:text-heading-sm sgds:font-bold sgds:opacity-40 sgds:text-muted">Kementerian Kominfo</div>
+                <div class="sgds:text-heading-sm sgds:font-bold sgds:opacity-40 sgds:text-muted">BPJS Kesehatan</div>
+                <div class="sgds:text-heading-sm sgds:font-bold sgds:opacity-40 sgds:text-muted">Kementerian Pendidikan</div>
+              </div>
+              <!-- Duplicate for seamless loop -->
+              <div
+                class="sgds:flex sgds:gap-layout-xl sgds:items-center sgds:shrink-0"
+                aria-hidden="true"
+              >
+                <div class="sgds:text-heading-sm sgds:font-bold sgds:opacity-40 sgds:text-muted">Kementerian Kesehatan</div>
+                <div class="sgds:text-heading-sm sgds:font-bold sgds:opacity-40 sgds:text-muted">GovTech Indonesia</div>
+                <div class="sgds:text-heading-sm sgds:font-bold sgds:opacity-40 sgds:text-muted">Kota Cerdas</div>
+                <div class="sgds:text-heading-sm sgds:font-bold sgds:opacity-40 sgds:text-muted">Kementerian Kominfo</div>
+                <div class="sgds:text-heading-sm sgds:font-bold sgds:opacity-40 sgds:text-muted">BPJS Kesehatan</div>
+                <div class="sgds:text-heading-sm sgds:font-bold sgds:opacity-40 sgds:text-muted">Kementerian Pendidikan</div>
+              </div>
+            </div>
+          </div>
+        </AnimateOnScroll>
+
+        <style>
+          @keyframes sgds-marquee {
+            from {
+              transform: translateX(0);
+            }
+            to {
+              transform: translateX(-50%);
+            }
+          }
+          .sgds-about-logo-track {
+            animation: sgds-marquee 40s linear infinite;
+          }
+          @media (prefers-reduced-motion: reduce) {
+            .sgds-about-logo-track {
+              animation: none;
+            }
+          }
+        </style>
+      </div>
+
+      <!-- ④ Achievements panel -->
+      <AnimateOnScroll animation="fade-in-up">
+        <div
+          id="stats"
+          class="sgds:bg-surface-raised sgds:border sgds:border-muted sgds:rounded-xl sgds:p-layout-lg sgds:mb-layout-2xl sgds:shadow-sm"
+        >
+          <!-- Panel header -->
+          <div class="sgds-grid sgds:mb-layout-xl">
+            <div class="sgds-col-4 sgds-col-sm-8 sgds-col-lg-6">
+              <h2
+                class="sgds:text-heading-lg sgds:font-bold sgds:leading-lg sgds:tracking-tight sgds:text-default"
+              >
+                Memberikan dampak dalam skala besar
+              </h2>
+            </div>
+            <div class="sgds-col-4 sgds-col-sm-8 sgds-col-lg-6">
+              <p
+                class="sgds:text-body-md sgds:font-regular sgds:leading-xs sgds:text-muted"
+              >
+                Platform kami menggerakkan layanan digital yang digunakan oleh jutaan warga dan ribuan pegawai di seluruh ekosistem pemerintahan.
+              </p>
+            </div>
+          </div>
+
+          <!-- Stats grid -->
+          <div class="sgds-grid">
+            {
+              stats.map((stat) => (
+                <div class="sgds-col-4 sgds-col-sm-4 sgds-col-lg-3 sgds:mb-component-md lg:sgds:mb-0">
+                  <p class="sgds:text-display-sm sgds:font-bold sgds:leading-xl sgds:tracking-tighter sgds:text-primary-default">
+                    {stat.value}
+                  </p>
+                  <p class="sgds:text-body-sm sgds:font-regular sgds:leading-2-xs sgds:text-muted sgds:mt-1 sgds:uppercase">
+                    {stat.label}
+                  </p>
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </AnimateOnScroll>
+
+      <!-- ⑤ Key Services (kept from our original plan to maintain content) -->
+      <AnimateOnScroll animation="fade-in-up">
+        <div
+          id="services"
+          class="sgds:text-center sgds:mb-layout-xl sgds:mt-layout-xl"
+        >
+          <h2 class="sgds:text-heading-lg sgds:font-bold">
+            Layanan Digital Utama
+          </h2>
+          <p class="sgds:text-body-lg sgds:text-muted">
+            Layanan terintegrasi yang esensial dan dirancang untuk masyarakat
+          </p>
+        </div>
+
+        <div class="sgds-grid sgds:gap-layout-md sgds:mb-layout-2xl">
+          {
+            features.map((service, index) => (
+              <div class="sgds-col-4 sgds-col-sm-8 sgds-col-lg-4">
+                <AnimateOnScroll
+                  animation="fade-in-up"
+                  delay={`${0.2 + index * 0.1}s`}
+                  class="sgds:h-full"
+                >
+                  <sgds-card class="sgds:h-full sgds:shadow-card sgds:border-color-muted hover:sgds:-translate-y-1 sgds:transition-transform sgds:duration-300">
+                    <div
+                      slot="icon"
+                      class="sgds:text-primary-default sgds:mb-component-sm"
+                      style="font-size: 2.5rem;"
+                    >
+                      <i class={`bi ${service.icon}`} />
+                    </div>
+                    <h4
+                      slot="title"
+                      class="sgds:text-heading-md sgds:font-bold"
+                    >
+                      {service.title}
+                    </h4>
+                    <p
+                      slot="description"
+                      class="sgds:text-body-md sgds:text-muted"
+                    >
+                      {service.description}
+                    </p>
+                    <sgds-button
+                      slot="footer"
+                      variant="outline-primary"
+                      class="sgds:mt-component-sm"
+                    >
+                      Pelajari Lebih Lanjut
+                    </sgds-button>
+                  </sgds-card>
+                </AnimateOnScroll>
+              </div>
+            ))
+          }
+        </div>
+      </AnimateOnScroll>
+
+      <!-- ⑥ CTA Banner -->
+      <AnimateOnScroll animation="fade-in-up">
+        <div
+          class="sgds:bg-primary-default sgds:rounded-xl sgds:p-layout-xl sgds:text-center sgds:text-inverse sgds:shadow-lg sgds:mt-5"
+        >
+          <h2
+            class="sgds:text-heading-xl sgds:font-bold sgds:mb-layout-md"
+            style="color: white;"
+          >
+            Siap memulai transaksi Anda?
+          </h2>
+          <p
+            class="sgds:text-body-lg sgds:mb-layout-xl sgds:opacity-90"
+            style="color: rgba(255,255,255,0.9);"
+          >
+            Layanan digital yang aman, cepat, dan mudah diakses tersedia untuk Anda.
+          </p>
+          <sgds-button
+            variant="light"
+            size="lg"
+            class="sgds:px-layout-md sgds:text-primary-default sgds:font-bold"
+            >Mulai Layanan e-Government</sgds-button
+          >
+        </div>
+      </AnimateOnScroll>
+    </div>
+  </div>
+</MainLayout>
