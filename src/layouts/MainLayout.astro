@@ -27,7 +27,7 @@ const { title } = Astro.props;
 </head>
 <body class="sgds:bg-surface-default sgds:text-default">
 <div>
-  <sgds-system-banner show dismissible fluid>
+  <!-- <sgds-system-banner show dismissible fluid>
     <sgds-system-banner-item>
       <sgds-icon slot="icon" name="info-circle-fill" size="md"></sgds-icon>
       Pemberitahuan Sistem: Website ini masih dalam tahap uji coba (Beta).
@@ -35,7 +35,7 @@ const { title } = Astro.props;
         <a href="#">Info Lanjut <sgds-icon name="arrow-right"></sgds-icon></a>
       </sgds-link>
     </sgds-system-banner-item>
-  </sgds-system-banner>
+  </sgds-system-banner> -->
   <sgds-mainnav fluid="" brandHref="/">
     <img alt="Astro logo" height="40" src="https://astro.build/assets/press/full-logo-light.svg" slot="brand" >
     <sgds-mainnav-item slot="end"><a href="#home">Beranda</a></sgds-mainnav-item>
@@ -103,14 +103,14 @@ const { title } = Astro.props;
 </div>
 
 <!-- Cookie Consent Banner & Modal -->
-<sgds-toast-container position="bottom-center">
+<!-- <sgds-toast-container position="bottom-center">
   <sgds-toast id="cookie-toast" show variant="neutral" title="Pemberitahuan Cookie">
     <sgds-icon slot="icon" name="info-circle-fill"></sgds-icon>
     Website ini menggunakan cookie untuk memastikan pengalaman pengguna yang lebih baik.
     <a href="#" id="open-cookie-modal" class="sgds:ml-2 sgds:underline sgds:text-primary-default">Kelola Pengaturan</a>
     <sgds-button slot="action" id="accept-cookies" size="sm" variant="primary" class="sgds:ml-4">Terima Semua</sgds-button>
   </sgds-toast>
-</sgds-toast-container>
+</sgds-toast-container> -->
 
 <!-- Cookie Preferences Modal -->
 <sgds-modal id="cookie-modal">
