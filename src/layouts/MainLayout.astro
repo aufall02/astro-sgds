@@ -38,18 +38,18 @@ const { title } = Astro.props;
   </sgds-system-banner>
   <sgds-mainnav fluid="" brandHref="/">
     <img alt="Astro logo" height="40" src="https://astro.build/assets/press/full-logo-light.svg" slot="brand" >
-    <sgds-mainnav-item><a href="#home">Beranda</a></sgds-mainnav-item>
-    <sgds-mainnav-item><a href="#stats">Statistik</a></sgds-mainnav-item>
+    <sgds-mainnav-item slot="end"><a href="#home">Beranda</a></sgds-mainnav-item>
+    <sgds-mainnav-item slot="end"><a href="#stats">Statistik</a></sgds-mainnav-item>
 
     <!-- Dropdown Menu -->
-    <sgds-mainnav-dropdown>
+    <sgds-mainnav-dropdown slot="end">
       <span slot="toggler">Layanan</span>
       <sgds-dropdown-item><a href="/services/consulting">Konsultasi</a></sgds-dropdown-item>
       <sgds-dropdown-item><a href="/services/engineering">Rekayasa Perangkat Lunak</a></sgds-dropdown-item>
       <sgds-dropdown-item><a href="/services/design">Desain UI/UX</a></sgds-dropdown-item>
     </sgds-mainnav-dropdown>
 
-    <sgds-mainnav-item><a href="#faq">Pertanyaan Umum</a></sgds-mainnav-item>
+    <sgds-mainnav-item slot="end"><a href="#faq">Pertanyaan Umum</a></sgds-mainnav-item>
   </sgds-mainnav>
 </div>
 
@@ -62,36 +62,42 @@ const { title } = Astro.props;
   <!-- Global Footer -->
   <sgds-footer
       lastUpdatedDate="27 Mar 2026"
-      contactHref="#"
-      feedbackHref="#"
-      privacyHref="#"
-      termsOfUseHref="#"
+      contactHref="mailto:layanan@egov.go.id"
+      feedbackHref="#faq"
+      privacyHref="/privacy"
+      termsOfUseHref="/terms"
   >
-    <div slot="title">Astro SGDS Boilerplate Indonesia</div>
+    <div slot="title">Portal Layanan Digital Pemerintah</div>
     <div slot="description">
-      Memungkinkan pengembang untuk membangun layanan digital yang aman, dapat diakses, dan inklusif.
+      Platform terpadu untuk menghadirkan layanan publik yang aman, cepat, inklusif, dan berorientasi pada kebutuhan masyarakat Indonesia.
     </div>
 
     <sgds-footer-item slot="items">
-      <div slot="title">Kolom 1</div>
-      <sgds-link><a href="">Tentang Kami</a></sgds-link>
-      <sgds-link><a href="">Pekerjaan Kami</a></sgds-link>
+      <div slot="title">Layanan</div>
+      <sgds-link><a href="#services">Semua Layanan</a></sgds-link>
+      <sgds-link><a href="#stats">Statistik Layanan</a></sgds-link>
+      <sgds-link><a href="#home">Mulai dari Beranda</a></sgds-link>
     </sgds-footer-item>
 
     <sgds-footer-item slot="items">
-      <div slot="title">Kolom 2</div>
-      <sgds-link><a href="">Layanan Digital</a></sgds-link>
-      <sgds-link><a href="">Karir</a></sgds-link>
+      <div slot="title">Dukungan Pengguna</div>
+      <sgds-link><a href="#faq">Pertanyaan Umum</a></sgds-link>
+      <sgds-link><a href="mailto:helpdesk@egov.go.id">Helpdesk</a></sgds-link>
+      <sgds-link><a href="mailto:layanan@egov.go.id">Kontak Resmi</a></sgds-link>
     </sgds-footer-item>
+
     <sgds-footer-item slot="items">
-      <div slot="title">Kolom 3</div>
-      <sgds-link><a href="">Layanan Digital</a></sgds-link>
-      <sgds-link><a href="">Karir</a></sgds-link>
+      <div slot="title">Sumber Daya</div>
+      <sgds-link><a href="/docs">Dokumentasi</a></sgds-link>
+      <sgds-link><a href="/status">Status Layanan</a></sgds-link>
+      <sgds-link><a href="/release-notes">Catatan Rilis</a></sgds-link>
     </sgds-footer-item>
+
     <sgds-footer-item slot="items">
-      <div slot="title">Kolom 4</div>
-      <sgds-link><a href="">Layanan Digital</a></sgds-link>
-      <sgds-link><a href="">Karir</a></sgds-link>
+      <div slot="title">Kebijakan & Institusi</div>
+      <sgds-link><a href="/about">Tentang Platform</a></sgds-link>
+      <sgds-link><a href="/privacy">Kebijakan Privasi</a></sgds-link>
+      <sgds-link><a href="/terms">Syarat Penggunaan</a></sgds-link>
     </sgds-footer-item>
   </sgds-footer>
 </div>
